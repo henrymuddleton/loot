@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from pyvirtualdisplay import Display
+from webdriver_manager.chrome import ChromeDriverManager
 
 email = 'logjefferson6@gmail.com'
 password = 'xonB23Y5'
@@ -16,7 +17,7 @@ if __name__ == '__main__':
     chrome_options = Options()
     chrome_options.add_argument('--disable-notifications')
     chrome_options.add_extension('tamper.crx')
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
 
     ## install focus
     # go to install page
