@@ -8,15 +8,20 @@ from webdriver_manager.chrome import ChromeDriverManager
 email = 'logjefferson6@gmail.com'
 password = 'xonB23Y5'
 
+path=input('Chromedriver path: ')
+chrome_location = input('Chrome path: ')
+
+
 if __name__ == '__main__':
     # destroy display
     display = Display(visible=0, size=(800, 600))
     display.start()
     ## install stuff
     chrome_options = Options()
+    chrome_options.binary_location = chrome_location
     chrome_options.add_argument('--disable-notifications')
     chrome_options.add_extension('tamper.crx')
-    driver = webdriver.Chrome(ChromeDriverManager().install(),options=chrome_options)
+    driver = webdriver.Chrome(executable_path=path,options=chrome_options)
 
     ## install focus
     # go to install page
